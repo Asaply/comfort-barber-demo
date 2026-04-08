@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbershop Comfort | Chihuahua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d0c0a;--ink2:#1a1916;--gold:#c8973a;--gold2:#e8c06a;--cream:#f4ede0;--muted:rgba(244,237,224,0.55);--line:rgba(200,151,58,0.18);}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:var(--cream);font-family:'Barlow',sans-serif;overflow-x:hidden;}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:22px 56px;backdrop-filter:blur(12px);background:rgba(13,12,10,0.85);border-bottom:1px solid var(--line);}
+.nav-brand{display:flex;flex-direction:column;gap:1px;}
+.nav-brand-top{font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.25em;color:var(--gold);}
+.nav-brand-sub{font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;color:rgba(244,237,224,.4);}
+.nav-menu{display:flex;gap:40px;list-style:none;}
+.nav-menu a{font-size:.72rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-menu a:hover{color:var(--gold);}
+.nav-pill{font-size:.72rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:10px 24px;text-decoration:none;transition:background .2s;}
+.nav-pill:hover{background:var(--gold2);}
+
+/* HERO */
+.hero{height:100vh;min-height:640px;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.hero-l{background:var(--ink2);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 64px;position:relative;overflow:hidden;}
+.hero-l::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0' y1='60' x2='60' y2='0' stroke='%23c8973a' stroke-width='0.3' opacity='0.09'/%3E%3C/svg%3E");pointer-events:none;}
+.hero-big-num{position:absolute;right:-10px;top:50%;transform:translateY(-55%);font-family:'Bebas Neue',sans-serif;font-size:32vw;color:rgba(200,151,58,.04);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;font-size:.68rem;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;animation:up .7s ease both;}
+.hero-eyebrow span{width:32px;height:1px;background:var(--gold);flex-shrink:0;}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3.6rem,6.5vw,7rem);font-weight:900;line-height:.9;letter-spacing:-.02em;margin-bottom:32px;animation:up .7s .1s ease both;}
+.hero-h1 em{font-style:italic;color:var(--gold);display:block;}
+.hero-sub{font-size:1rem;font-weight:300;line-height:1.8;color:var(--muted);max-width:380px;margin-bottom:52px;animation:up .7s .2s ease both;}
+.hero-btns{display:flex;gap:20px;align-items:center;animation:up .7s .3s ease both;}
+.btn-g{font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:16px 40px;text-decoration:none;transition:background .2s,transform .15s;}
+.btn-g:hover{background:var(--gold2);transform:translateY(-2px);}
+.btn-ghost{font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);text-decoration:none;opacity:.45;border-bottom:1px solid currentColor;padding-bottom:2px;transition:opacity .2s;}
+.btn-ghost:hover{opacity:1;}
+.scroll-hint{position:absolute;bottom:40px;left:64px;display:flex;align-items:center;gap:12px;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(244,237,224,.3);animation:up .7s .5s ease both;}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollDrop 1.5s ease-in-out infinite;}
+@keyframes scrollDrop{0%,100%{transform:scaleY(1);opacity:.4;}50%{transform:scaleY(1.3) translateY(4px);opacity:.9;}}
+
+/* HERO RIGHT */
+.hero-r{position:relative;overflow:hidden;background:#100f0d;}
+.hero-r::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 55% 50%,rgba(200,151,58,.1) 0%,transparent 70%);pointer-events:none;}
+.deco-ring{position:absolute;border-radius:50%;border:1px solid rgba(200,151,58,.07);pointer-events:none;}
+.pole-wrap{position:absolute;right:90px;top:50%;transform:translateY(-50%);width:48px;height:280px;border-radius:24px;overflow:hidden;border:1px solid rgba(200,151,58,.25);box-shadow:0 0 60px rgba(200,151,58,.08);}
+.pole-stripe{width:200%;height:600%;background:repeating-linear-gradient(-45deg,#b01820 0,#b01820 16px,#f4ede0 16px,#f4ede0 32px,#1a3f99 32px,#1a3f99 48px,#f4ede0 48px,#f4ede0 64px);animation:poleSpin 2.8s linear infinite;}
+@keyframes poleSpin{from{transform:translateY(0);}to{transform:translateY(-16.67%);}}
+.pole-cap{position:absolute;left:0;right:0;height:28px;background:var(--ink2);border-bottom:1px solid rgba(200,151,58,.3);}
+.pole-cap.bottom{bottom:0;top:auto;border-top:1px solid rgba(200,151,58,.3);border-bottom:none;}
+.tool-card{position:absolute;background:rgba(26,25,22,.92);border:1px solid rgba(200,151,58,.18);padding:16px 20px;backdrop-filter:blur(8px);}
+.tool-card-label{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.tool-card-val{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.05em;color:var(--cream);line-height:1;}
+.tool-card-sub{font-size:.65rem;font-weight:300;color:var(--muted);margin-top:4px;}
+.hero-badge{position:absolute;bottom:64px;right:48px;width:108px;height:108px;border-radius:50%;border:1px solid rgba(200,151,58,.4);display:flex;align-items:center;justify-content:center;animation:spinBadge 20s linear infinite;}
+.badge-inner{position:absolute;inset:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;animation:spinBadge 20s linear infinite reverse;}
+.badge-num{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--gold);line-height:1;}
+.badge-label{font-size:.5rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,237,224,.55);margin-top:3px;}
+.badge-stars{color:var(--gold);font-size:.68rem;letter-spacing:2px;margin-top:4px;}
+@keyframes spinBadge{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--gold);overflow:hidden;padding:14px 0;border-top:1px solid rgba(0,0,0,.1);}
+.marquee-track{display:flex;width:max-content;animation:marquee 18s linear infinite;}
+.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.25em;color:var(--ink);padding:0 40px;white-space:nowrap;display:flex;align-items:center;gap:20px;}
+.marquee-dot{width:6px;height:6px;border-radius:50%;background:rgba(13,12,10,.22);flex-shrink:0;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SERVICES */
+.services{padding:110px 56px;background:var(--ink2);position:relative;}
+.section-tag{font-size:.65rem;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.section-tag::before{content:'';width:28px;height:1px;background:var(--gold);}
+.section-h{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4vw,4rem);font-weight:900;line-height:1.05;margin-bottom:72px;}
+.section-h em{font-style:italic;color:var(--gold);}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(200,151,58,.08);}
+.svc-card{background:var(--ink2);padding:44px 36px;position:relative;overflow:hidden;transition:background .3s;}
+.svc-card:hover{background:#1e1d1a;}
+.svc-card::after{content:'';position:absolute;left:0;bottom:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.svc-card:hover::after{transform:scaleX(1);}
+.svc-num{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:rgba(200,151,58,.07);line-height:1;position:absolute;right:24px;top:24px;}
+.svc-icon-wrap{width:52px;height:52px;border:1px solid rgba(200,151,58,.25);display:flex;align-items:center;justify-content:center;margin-bottom:24px;}
+.svc-icon-wrap svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.svc-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;margin-bottom:12px;}
+.svc-desc{font-size:.88rem;font-weight:300;line-height:1.75;color:var(--muted);}
+
+/* STATS */
+.stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,151,58,.1);}
+.stat-cell{background:var(--ink);padding:56px 40px;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:5rem;line-height:1;color:var(--gold);letter-spacing:.02em;}
+.stat-u{font-size:.68rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(244,237,224,.4);margin-top:6px;}
+
+/* REVIEWS */
+.reviews{padding:110px 56px;background:var(--ink2);}
+.rev-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;margin-top:60px;}
+.rev-card{background:var(--ink);border:1px solid rgba(200,151,58,.1);padding:40px;position:relative;transition:border-color .3s,transform .3s;}
+.rev-card:hover{border-color:rgba(200,151,58,.3);transform:translateY(-3px);}
+.rev-card.featured{grid-row:span 2;background:var(--ink2);border-color:rgba(200,151,58,.22);}
+.rev-mark{font-family:'Playfair Display',serif;font-size:5rem;line-height:.8;color:var(--gold);opacity:.18;margin-bottom:-10px;display:block;}
+.rev-stars{color:var(--gold);font-size:.8rem;letter-spacing:3px;margin-bottom:18px;}
+.rev-text{font-size:.95rem;font-weight:300;font-style:italic;line-height:1.8;color:rgba(244,237,224,.8);margin-bottom:28px;}
+.rev-text.large{font-size:1.12rem;line-height:1.9;}
+.rev-author{font-size:.65rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1fr 1fr;min-height:600px;}
+.about-visual{background:var(--ink);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.about-bg-text{font-family:'Bebas Neue',sans-serif;font-size:22vw;color:rgba(200,151,58,.03);line-height:1;position:absolute;white-space:nowrap;user-select:none;}
+.about-center-icon{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:40px;}
+.about-body{background:var(--ink2);padding:90px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.about-body::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:.35;}
+.about-quote{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:400;font-style:italic;line-height:1.55;color:var(--cream);margin-bottom:28px;padding-left:28px;}
+.about-body p{font-size:.95rem;font-weight:300;line-height:1.85;color:var(--muted);margin-bottom:14px;padding-left:28px;}
+.info-row{display:flex;flex-direction:column;gap:12px;margin-top:36px;padding-left:28px;}
+.info-chip{display:flex;align-items:center;gap:14px;font-size:.82rem;font-weight:300;color:var(--muted);}
+.info-chip svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+/* CTA */
+.cta-full{padding:120px 56px;background:var(--gold);text-align:center;position:relative;overflow:hidden;}
+.cta-full::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent 0,transparent 40px,rgba(13,12,10,.04) 40px,rgba(13,12,10,.04) 80px);pointer-events:none;}
+.cta-eyebrow{font-size:.68rem;font-weight:500;letter-spacing:.4em;text-transform:uppercase;color:rgba(13,12,10,.45);margin-bottom:18px;display:block;}
+.cta-h{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:900;line-height:1;color:var(--ink);margin-bottom:12px;}
+.cta-h em{font-style:italic;}
+.cta-sub{font-size:1.05rem;font-weight:300;color:rgba(13,12,10,.6);margin-bottom:48px;}
+.btn-ink{font-size:.75rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;background:var(--ink);color:var(--cream);padding:18px 52px;text-decoration:none;display:inline-block;transition:background .2s,transform .15s;position:relative;z-index:1;}
+.btn-ink:hover{background:var(--ink2);transform:translateY(-2px);}
+
+/* FOOTER */
+footer{background:var(--ink);padding:44px 56px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);}
+.foot-brand{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:.22em;color:var(--gold);}
+.foot-copy{font-size:.7rem;color:rgba(244,237,224,.22);letter-spacing:.08em;}
+.foot-links{display:flex;gap:28px;}
+.foot-links a{font-size:.65rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,237,224,.28);text-decoration:none;transition:color .2s;}
+.foot-links a:hover{color:var(--gold);}
+
+@keyframes up{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:900px){
+  .nav{padding:18px 24px;}.nav-menu,.nav-pill{display:none;}
+  .hero{grid-template-columns:1fr;}.hero-r{display:none;}.hero-l{padding:100px 24px 60px;}
+  .services{padding:80px 24px;}.svc-grid{grid-template-columns:1fr;}
+  .stats-band{grid-template-columns:1fr 1fr;}
+  .reviews{padding:80px 24px;}.rev-grid{grid-template-columns:1fr;}.rev-card.featured{grid-row:span 1;}
+  .about{grid-template-columns:1fr;}.about-visual{min-height:280px;}.about-body{padding:60px 24px;}
+  .cta-full{padding:80px 24px;}
+  footer{padding:32px 24px;flex-direction:column;gap:18px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-brand">
+    <span class="nav-brand-top">Barbershop Comfort</span>
+    <span class="nav-brand-sub">Chihuahua, México</span>
+  </div>
+  <ul class="nav-menu">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#resenas">Reseñas</a></li>
+  </ul>
+  <a href="tel:6144230461" class="nav-pill">Reservar cita</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-big-num">4.5</div>
+    <div class="hero-eyebrow"><span></span>Barbería de precisión · Chihuahua</div>
+    <h1 class="hero-h1">El arte<br>de verse<em>bien.</em></h1>
+    <p class="hero-sub">Técnica profesional, ambiente único y el mejor servicio en Plaza Tres Vías. Más de 258 clientes nos respaldan.</p>
+    <div class="hero-btns">
+      <a href="tel:6144230461" class="btn-g">Reservar ahora</a>
+      <a href="#servicios" class="btn-ghost">Ver servicios</a>
+    </div>
+    <div class="scroll-hint"><div class="scroll-line"></div>Scroll</div>
+  </div>
+
+  <div class="hero-r">
+    <div class="deco-ring" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+    <div class="deco-ring" style="width:340px;height:340px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:rgba(200,151,58,.12)"></div>
+
+    <!-- Scissors illustration centered -->
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 260 300" width="220" fill="none" xmlns="http://www.w3.org/2000/svg" opacity=".5">
+        <ellipse cx="52" cy="55" rx="28" ry="28" stroke="#c8973a" stroke-width="2"/>
+        <ellipse cx="52" cy="55" rx="18" ry="18" stroke="#c8973a" stroke-width="1" opacity=".35"/>
+        <ellipse cx="208" cy="55" rx="28" ry="28" stroke="#c8973a" stroke-width="2"/>
+        <ellipse cx="208" cy="55" rx="18" ry="18" stroke="#c8973a" stroke-width="1" opacity=".35"/>
+        <path d="M52 83 C52 120 120 155 130 165" stroke="#c8973a" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M208 83 C208 120 140 155 130 165" stroke="#c8973a" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M130 165 L115 245" stroke="#c8973a" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M130 165 L145 245" stroke="#c8973a" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="130" cy="165" r="8" fill="#1a1916" stroke="#c8973a" stroke-width="2"/>
+        <circle cx="130" cy="165" r="3" fill="#c8973a"/>
+      </svg>
+    </div>
+
+    <!-- Barber pole -->
+    <div class="pole-wrap">
+      <div class="pole-cap"></div>
+      <div class="pole-stripe"></div>
+      <div class="pole-cap bottom"></div>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="tool-card" style="top:22%;left:40px;">
+      <div class="tool-card-label">Reseñas Google</div>
+      <div class="tool-card-val">258</div>
+      <div class="tool-card-sub">Clientes satisfechos</div>
+    </div>
+    <div class="tool-card" style="bottom:28%;left:50px;">
+      <div class="tool-card-label">Calificación</div>
+      <div class="tool-card-val">4.5★</div>
+      <div class="tool-card-sub">Promedio verificado</div>
+    </div>
+
+    <div class="hero-badge">
+      <div class="badge-inner">
+        <div class="badge-num">4.5</div>
+        <div class="badge-stars">★★★★★</div>
+        <div class="badge-label">Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="marquee-dot"></span>Corte Clásico</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Arreglo de Barba</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Degradado</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Diseño Personalizado</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Corte Infantil</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Tratamiento Capilar</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Plaza Tres Vías · Chihuahua</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Corte Clásico</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Arreglo de Barba</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Degradado</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Diseño Personalizado</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Corte Infantil</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Tratamiento Capilar</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Plaza Tres Vías · Chihuahua</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="section-tag">Nuestros servicios</div>
+  <h2 class="section-h">Lo que hacemos<br><em>mejor</em></h2>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <span class="svc-num">01</span>
+      <div class="svc-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><line x1="8.5" y1="8.5" x2="12" y2="12"/><line x1="15.5" y1="8.5" x2="12" y2="12"/><line x1="12" y1="12" x2="10" y2="20"/><line x1="12" y1="12" x2="14" y2="20"/></svg></div>
+      <div class="svc-name">Corte Clásico</div>
+      <p class="svc-desc">Corte tradicional con acabado impecable. Tijera, máquina y navaja al gusto del cliente.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">02</span>
+      <div class="svc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M8 3a4 4 0 000 8"/><path d="M16 3a4 4 0 010 8"/><path d="M8 11s1 1 4 1 4-1 4-1"/><path d="M12 12v9"/><path d="M9 18l3 3 3-3"/></svg></div>
+      <div class="svc-name">Arreglo de Barba</div>
+      <p class="svc-desc">Perfilado, relleno y definición. Tu barba bien cuidada es tu mejor carta de presentación.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">03</span>
+      <div class="svc-icon-wrap"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+      <div class="svc-name">Corte + Barba</div>
+      <p class="svc-desc">El combo completo. Corte de cabello y arreglo de barba para lucir al 100%.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">04</span>
+      <div class="svc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+      <div class="svc-name">Corte Infantil</div>
+      <p class="svc-desc">Atención especial para los más pequeños. Paciencia y cuidado garantizados.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">05</span>
+      <div class="svc-icon-wrap"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+      <div class="svc-name">Degradado</div>
+      <p class="svc-desc">Transiciones precisas y limpias. Desde skin fade hasta cortes con textura moderna.</p>
+    </div>
+    <div class="svc-card">
+      <span class="svc-num">06</span>
+      <div class="svc-icon-wrap"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <div class="svc-name">Tratamiento Capilar</div>
+      <p class="svc-desc">Hidratación y cuidado para mantener tu cabello sano, fuerte y con la mejor apariencia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-cell"><div class="stat-n">4.5</div><div class="stat-u">Calificación Google</div></div>
+  <div class="stat-cell"><div class="stat-n">258</div><div class="stat-u">Reseñas verificadas</div></div>
+  <div class="stat-cell"><div class="stat-n">9PM</div><div class="stat-u">Cierre · Lun–Sáb</div></div>
+  <div class="stat-cell"><div class="stat-n">100%</div><div class="stat-u">Satisfacción</div></div>
+</div>
+
+<!-- REVIEWS -->
+<section class="reviews" id="resenas">
+  <div class="section-tag">Lo que dicen</div>
+  <h2 class="section-h">Nuestros <em>clientes</em><br>hablan por nosotros</h2>
+  <div class="rev-grid">
+    <div class="rev-card featured">
+      <span class="rev-mark">"</span>
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text large">Excelente servicio, siempre muy amables y te atienden súper bien. El ambiente es increíble, el equipo es profesional y el resultado siempre supera las expectativas. Sin duda el mejor lugar para cuidarse en Chihuahua.</p>
+      <div class="rev-author">— Cliente verificado Google</div>
+    </div>
+    <div class="rev-card">
+      <span class="rev-mark">"</span>
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">Muy bonita peluquería y muy buen trato de peluqueros y de la dependienta. Siempre salgo satisfecho.</p>
+      <div class="rev-author">— Cliente verificado Google</div>
+    </div>
+    <div class="rev-card">
+      <span class="rev-mark">"</span>
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">Excelente atención y buena calidad en los trabajos. Los recomiendo ampliamente a todos.</p>
+      <div class="rev-author">— Cliente verificado Google</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="about-visual">
+    <div class="about-bg-text">CUT</div>
+    <div class="about-center-icon">
+      <!-- Razor -->
+      <svg width="200" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg" opacity=".5">
+        <rect x="20" y="42" width="160" height="18" rx="4" stroke="#c8973a" stroke-width="1.5"/>
+        <rect x="20" y="42" width="32" height="18" rx="4" fill="rgba(200,151,58,.08)" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="52" y1="42" x2="52" y2="60" stroke="#c8973a" stroke-width="1"/>
+        <path d="M52 51 L180 46 L180 55 Z" fill="rgba(200,151,58,.12)" stroke="#c8973a" stroke-width="1.5"/>
+        <rect x="24" y="48" width="6" height="2" rx="1" fill="#c8973a" opacity=".5"/>
+        <rect x="24" y="54" width="6" height="2" rx="1" fill="#c8973a" opacity=".5"/>
+      </svg>
+      <!-- Comb -->
+      <svg width="220" height="55" viewBox="0 0 220 55" fill="none" xmlns="http://www.w3.org/2000/svg" opacity=".4">
+        <rect x="10" y="8" width="200" height="14" rx="4" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="30" y1="22" x2="30" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="50" y1="22" x2="50" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="70" y1="22" x2="70" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="90" y1="22" x2="90" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="110" y1="22" x2="110" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="130" y1="22" x2="130" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="150" y1="22" x2="150" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="170" y1="22" x2="170" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+        <line x1="190" y1="22" x2="190" y2="47" stroke="#c8973a" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+  <div class="about-body">
+    <div class="section-tag" style="padding-left:28px;">Sobre nosotros</div>
+    <h2 class="section-h" style="padding-left:28px;margin-bottom:32px;">Tradición<br>y <em>precisión</em></h2>
+    <p class="about-quote">"El lugar donde cada visita es una experiencia, no solo un corte."</p>
+    <p>En Barbershop Comfort combinamos técnica profesional con un ambiente cálido. Nuestro equipo está capacitado para atenderte con el mejor servicio en cada visita.</p>
+    <p>Somos el destino favorito de hombres chihuahuenses que valoran verse y sentirse bien.</p>
+    <div class="info-row">
+      <div class="info-chip"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Plaza Tres Vías, Local 306 · Residencial Campestre Washington</div>
+      <div class="info-chip"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Lunes a Sábado · Abierto hasta las 9 p.m.</div>
+      <div class="info-chip"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 17.92z"/></svg>614 423 0461</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-full">
+  <span class="cta-eyebrow">¿Listo para tu próxima visita?</span>
+  <h2 class="cta-h">Reserva tu cita<br><em>hoy mismo</em></h2>
+  <p class="cta-sub">Llámanos o visítanos en Plaza Tres Vías · Chihuahua</p>
+  <a href="tel:6144230461" class="btn-ink">614 423 0461 · Llamar ahora</a>
+</section>
+
+<footer>
+  <div class="foot-brand">Barbershop Comfort</div>
+  <div class="foot-copy">© 2025 Barbershop Comfort · Chihuahua, México</div>
+  <div class="foot-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#resenas">Reseñas</a>
+    <a href="#nosotros">Contacto</a>
+  </div>
+</footer>
+
+</body>
+</html>
